@@ -1,0 +1,17 @@
+package com.growskill.service;
+
+import com.growskill.exception.UserException;
+import com.growskill.model.User;
+
+
+public interface UserService {
+
+	public User createUser(User user) throws UserException;
+	
+	public User getUserById(int id) throws UserException;
+	
+	public User updateUserById(int id,User user) throws UserException;
+	
+	public String deleteUserById(int id) throws UserException;
+	
+}

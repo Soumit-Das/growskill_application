@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GrowSkill - payments</title>
+<link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+<style>
+	
+
+.wholecontainer{
+    display: flex;
+    margin-top: 100px;
+}
+.formsection{
+    width: 50%;
+    padding-left: 8%;
+    border: 0px;
+}
+form>p{
+    font-size: 20px;
+}
+form>h2{
+    font-size: 40px;
+}
+form{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+}
+#Countryselect{
+    width: 25%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.sidebysideinput1{
+    display: flex;
+    /* border: 2px solid red; */
+}
+#firstname{
+    margin-right: 20px;
+    width: 105%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#lastname{
+    margin-left: 50px;
+    width: 94%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#Addresssone{
+    width: 85%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.inputbox{
+    width: 85%;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+.inputbox2{
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+#Submitbtn{
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    margin-top: 5%;
+    margin-left: 19%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background: #59CBE8;
+    color: white;
+    border: rgba(75,86,102,255);
+}
+.rightdiv{
+    /* border: 2px solid blue; */
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right:0px;
+    border-left: 2px solid grey;
+    padding-left: 20px;
+    }
+    .rightdiv>h2{
+        font-family: 'Work Sans', sans-serif;
+        font-size: 40px;
+    }
+    table{
+      border-collapse: collapse;
+      border-left: 0px solid black;
+      border-right: 0px solid black;
+      border-top: 0px;
+      border-collapse: separate;
+        border-spacing: 0 10px;
+        width: 500px;
+        height: 700px;
+        font-family: 'Work Sans', sans-serif;
+      }
+      tr.border-bottom td {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin: 0px 5px 0px 5px;
+        border-bottom: 2pt solid white;
+        border-top: 2px solid white;
+        border-left: 0px;
+        border-right: 0px;
+        border-right: 2px solid black;
+      }
+      .ending{
+        border-bottom: 1px solid white;
+      }
+      #Subtotal{
+        text-align: center;
+        
+      }
+      #tablebody>tr>td{
+        border-left: 0px;
+        border-right: 0px;
+      }
+    .statusbtn{
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    margin-top: 20%;
+    margin-left: 25%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    background: #59CBE8;
+    color: white;
+    border: rgba(75,86,102,255);
+    display: none;
+      }
+      .visibletrackbtn{
+        display: block;
+      }
+    .popupform{
+        width: 250px;
+        background: #fff;
+        border-radius: 6px;
+        position: relative;
+        padding-left: 40px;
+        border: 2px solid red;
+        display: none;
+        margin-left: 25%;
+    }
+    .openPopup{
+        /* visibility: visible; */
+        width: 250px;
+        background: #fff;
+        border-radius: 6px;
+        position: relative;
+        /* text-align: center; */
+        padding-left: 40px;
+        border: 2px solid rgba(75,86,102,255);
+        /* visibility: hidden; */
+        display: block;
+        /* z-index: 20; */
+    }
+    #PopupPaybtn{
+    text-align: center;
+    height: 30px;
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 19%;
+    margin-bottom: 20px;
+    font-size: 17px;
+    background: #0d6efd;
+    color: white;
+    border: rgba(75,86,102,255);
+    }
+    #Payments{
+        margin-top: 20px;
+        text-align: center;
+        margin: 20px 30px 0px 140px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    #selectpay{
+        margin: 0px 30px 20px 220px;
+        padding: 5px 30px 5px 30px;
+        font-size: 17px;
+        background: #59CBE8;
+        color: white;
+        border: rgba(75,86,102,255);
+    }
+    .popupform2{
+        border: 2px solid rgba(75,86,102,255);
+        width: 200px;
+        margin: auto;
+        display: none;
+    }
+    .upiform{
+        display: block;
+        /* border: 2px solid red; */
+        width: 200px;
+        margin: auto;
+    }
+    .popupform2>h3{
+        padding-left: 15px;
+    }
+    .popupform2>input{
+        margin-left: 10px;
+    }
+    .PaymentSuccess{
+        width: 250px;
+        background: #fff;
+        border-radius: 6px;
+        top: 10;
+        margin: 0px;
+        padding-left: 40px;
+        margin-left: 25%;
+        border: 2px solid rgba(75,86,102,255);
+        position: relative;
+        /* z-index: 30; */
+        display: none;
+    }
+    .opensuccess{
+        display: block;
+    }
+    .currentstatus{
+        width: 520px;
+        margin-left: 20px;
+        text-align: center;
+        border: 2px solid red;
+        font-family: 'Work Sans', sans-serif;
+        display: none;
+    }
+    .statusdisplay{
+        display: block;
+    }
+    .currentstatus>img{
+        width: 100%;
+        filter: invert(100%);
+        padding-top: 20px;
+    }
+</style>
+
+</head>
+<body>
+
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">GrowSkill</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li><a href="/trainers">Trainers</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          
+          <th:block th:if="${user==NULL}">
+			
+          <li class="dropdown"><a href="/signin"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
+		
+        </th:block>
+          
+          
+          <th:block th:if="${user!=NULL}">
+			  
+          <li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/profile">Profile</a></li>
+              <li class="dropdown"><a href="/logout"><span>Logout</span></a></li>
+            </ul>
+          </li>
+		
+          </th:block>
+          
+          
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      <a href="courses.html" class="get-started-btn">Get Started</a>
+
+    </div>
+  </header>
+
+<div class="wholecontainer">
+    
+       <div class="formsection">
+    
+           <form action="javascript:void(0);" onsubmit="formsubmission(event)">
+               <h2>Shipping Address</h2>
+               <p>Country/Region</p>
+               <select id="Countryselect">
+       <option name="" id="">
+           India
+       </option>
+       <option name="" id="">
+           USA
+       </option>
+       <option name="" id="">
+           Russia
+       </option>
+       <option name="" id="">
+           Europe
+       </option>
+       <option name="" id="">
+           Japan
+       </option>
+               </select>
+       
+               <div class="sidebysideinput1">
+                   <div>
+                        <p>First Name</p>
+                       <input type="text" id="firstname">
+                   </div>
+                   <div>
+                        <p>Last Name</p>
+                       <input type="text" id="lastname">
+                   </div>
+               </div>
+       
+       <p>Street Address</p>
+       <input type="text" id="Addresssone">
+       <p>Address 2</p>
+       <input type="text" id="Add2" class="inputbox">
+       <p>City</p>
+       <input type="text" id="cityname" class="inputbox">
+       <p>Pin Code</p>
+       <input type="number" id="pinn" class="inputbox2">
+       <p>Mobile Number</p>
+       <input type="number" id="phone" class="inputbox2">
+       <br>
+       <br>
+ <input type="submit" id="Submitbtn">
+
+           </form>
+       </div>
+
+
+<div class="rightdiv">
+    <h2>Order Summary</h2>
+    <table  border="1 | 0">
+        
+        <tbody id="tablebody">
+          <tr class="ending">
+            <td>Country</td>
+            <td id="country"></td>
+          </tr>
+          <tr class="ending">
+            <td>Name</td>
+            <td id="named"></td>
+          </tr>
+          <tr class="ending">
+            <td>Address</td>
+            <td id="addresses"></td>
+          </tr>
+          <tr class="ending">
+            <td>City</td>
+            <td id="city"></td>
+          </tr>
+          <tr class="ending">
+            <td>PinCode</td>
+            <td id="pin"></td>
+          </tr>
+          <tr>
+            <td>Mobile</td>
+            <td id="mobile"></td>
+          </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr class="border-bottom">
+                <td class="totaltxt">Total</td>
+                <td id="Subtotal"></td>
+            </tr>
+        </tfoot>
+    </table>
+    <select name="" id="Payments">
+      <option class="opt" value="">Select Payment option</option>
+      <option value="Card">Card</option>
+      <option value="UPI">UPI</option>
+      <option value="COD">Cash on Delivery</option>
+    </select>
+    <br><br>
+    <button onclick="openPopup()" id="selectpay">Pay</button>
+
+    <!-- Card -->
+
+    <div class="popupform">
+      <h3>Card Number</h3>
+      <input type="number">
+      <h3>Expiry Date</h3>
+      <input type="date">
+      <h3>Pin</h3>
+      <input type="number">
+      <br><br>
+      <button id="PopupPaybtn" onclick="closePopup()">Pay</button>
+    </div>
+
+    <!-- UPI -->
+
+    <div class="popupform2">
+      <h3>UPI ID</h3>
+      <input type="text">
+      <br><br>
+      <button id="PopupPaybtn" onclick="closePopup2()">Pay</button>
+    </div>
+
+    <!-- COD -->
+
+
+<!-- payment success -->
+
+    <div class="PaymentSuccess">
+      <h3>Payment success</h3>
+    
+      <h3>Congrats</h3>
+      
+      <br><br>
+      <button id="PopupPaybtn" onclick="closeSuccess()">OK</button>
+    </div>
+
+    
+  <button class="statusbtn" onclick="showstatus()">Track Status</button>
+   
+  <div class="currentstatus">
+    <img src="/accidental-discussion-3173/images/trackstatusimg.jpg" alt="">
+     <h4>Order Status - Disbursed from warehouse</h4>
+     <div class="ordersidebyside">
+       <h4>Arriving on</h4>
+       <h4 id="deliverydate"></h4>
+     </div>
+  </div>
+
+
+</div>
+
+   </div> 
+
+
+<footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Mentor</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">GrowSkill</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+
+
+  <script src="assets/js/main.js"></script>
+
+
+  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+	document.querySelector("form").addEventListener("submit", formsubmission);
+	
+function formsubmission(event) {	
+    if (event.type === 'submit') {
+        event.preventDefault();
+    }
+
+    let totalprice = localStorage.getItem("coursePrice");
+    console.log(totalprice);
+
+    let Ctry = document.querySelector("#Countryselect").value;
+    document.querySelector("#country").textContent = Ctry;
+
+    let Ftnm = document.querySelector("#firstname").value;
+    let Ltnm = document.querySelector("#lastname").value;
+    let fullname = Ftnm + " " + Ltnm;
+    document.querySelector("#named").textContent = fullname;
+
+    let Addresse = document.querySelector("#Addresssone").value;
+    document.querySelector("#addresses").textContent = Addresse;
+
+    let Cty = document.querySelector("#cityname").value;
+    document.querySelector("#city").textContent = Cty;
+
+    let pnn = document.querySelector("#pinn").value;
+    document.querySelector("#pin").textContent = pnn;
+
+    let Phne = document.querySelector("#phone").value;
+    document.querySelector("#mobile").textContent = Phne;
+
+    document.querySelector("#Subtotal").textContent = totalprice;
+}
+
+
+
+
+
+function openPopup(){
+    let p = document.querySelector("#Payments").value
+
+    if(p == "Card"){
+        
+        document.querySelector(".popupform").classList.add("openPopup")
+
+    }
+    if(p == "UPI"){
+        document.querySelector(".popupform2").classList.add("upiform")
+        document.querySelector(".popupform").classList.remove("openPopup")
+    }
+    if(p == "COD"){
+        document.querySelector(".statusbtn").classList.add("visibletrackbtn")
+    }
+
+}
+
+function closePopup(){
+    document.querySelector(".popupform").classList.remove("openPopup")
+    document.querySelector(".PaymentSuccess").classList.add("opensuccess")
+}
+
+function closeSuccess(){
+    document.querySelector(".PaymentSuccess").classList.remove("opensuccess")
+    document.querySelector(".statusbtn").classList.add("visibletrackbtn")
+}
+
+function closePopup2(){
+    document.querySelector(".popupform2").classList.remove("upiform")
+    document.querySelector(".PaymentSuccess").classList.add("opensuccess")
+}
+
+function showstatus(){
+    document.querySelector(".currentstatus").classList.add("statusdisplay")
+    document.querySelector(".statusbtn").classList.remove("visibletrackbtn")
+
+// getting date and month
+
+/* let months = [
+    "January", "February", 
+    "March", "April", "May", 
+    "June", "July", "August",
+    "September", "October", 
+    "November", "December"
+];
+
+let d = new Date();
+let a = d.getDate()+7 + " "
+let b = " "+2024
+document.getElementById(
+    "deliverydate").innerHTML =
+     a 
+    + months[d.getMonth()] + b;
+
+}*/
+
+
+let months = [
+    "January", "February", 
+    "March", "April", "May", 
+    "June", "July", "August",
+    "September", "October", 
+    "November", "December"
+];
+
+let d = new Date();
+d.setDate(d.getDate() + 7); // Add 7 days to the current date
+
+let day = d.getDate();
+let month = months[d.getMonth()];
+let year = d.getFullYear();
+
+document.getElementById("deliverydate").innerHTML = day + " " + month + " " + year;
+}
+</script>
+</body>
+</html>

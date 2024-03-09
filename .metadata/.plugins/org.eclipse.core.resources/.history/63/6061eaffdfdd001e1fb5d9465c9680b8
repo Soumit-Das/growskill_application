@@ -1,0 +1,150 @@
+
+(function() {
+  "use strict";
+
+  /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+
+  /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
+
+  /**
+   * Easy on scroll event listener 
+   */
+  const onscroll = (el, listener) => {
+    el.addEventListener('scroll', listener)
+  }
+
+  /**
+   * Back to top button
+   */
+  let backtotop = select('.back-to-top')
+  if (backtotop) {
+    const toggleBacktotop = () => {
+      if (window.scrollY > 100) {
+        backtotop.classList.add('active')
+      } else {
+        backtotop.classList.remove('active')
+      }
+    }
+    window.addEventListener('load', toggleBacktotop)
+    onscroll(document, toggleBacktotop)
+  }
+
+  /**
+   * Mobile nav toggle
+   */
+  on('click', '.mobile-nav-toggle', function(e) {
+    select('#navbar').classList.toggle('navbar-mobile')
+    this.classList.toggle('bi-list')
+    this.classList.toggle('bi-x')
+  })
+
+  /**
+   * Mobile nav dropdowns activate
+   */
+  on('click', '.navbar .dropdown > a', function(e) {
+    if (select('#navbar').classList.contains('navbar-mobile')) {
+      e.preventDefault()
+      this.nextElementSibling.classList.toggle('dropdown-active')
+    }
+  }, true)
+
+  /**
+   * Preloader
+   */
+  let preloader = select('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove()
+    });
+  }
+
+
+
+  /**
+   * Animation on scroll
+   */
+  window.addEventListener('load', () => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    })
+  });
+
+
+
+
+
+
+})()
+
+function displaycourses(){
+	
+	fetch('http://localhost:8888/courses/getAllCourses')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(courses => {
+            const coursesContainer = document.querySelector('#courses .row');
+            coursesContainer.innerHTML = ''; // Clear existing static content
+
+            courses.forEach(course => {
+                const courseItemHTML = `
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="course-item">
+                        <img src="${course.banner}" class="img-fluid" alt="...">
+                        <div class="course-content">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>${course.subject}</h4>
+                                <p class="price">$${course.price}</p>
+                            </div>
+                            <h3><a href="course-details.html">${course.subject}</a></h3>
+                            <p>${course.description}</p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <img src="${course.instructor.profilePic}" class="img-fluid" alt="">
+                                    <span>${course.instructor.firstname} ${course.instructor.lastname}</span>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <!-- Icons can be replaced or adjusted as needed -->
+                                    <i class="bx bx-calendar"></i>&nbsp;${course.startingDate} - ${course.endingDate}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+                coursesContainer.insertAdjacentHTML('beforeend', courseItemHTML);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching courses:', error);
+        });
+	
+}
+displaycourses()

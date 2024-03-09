@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>GrowSkill - Login</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<style>
+	.navbar.bg-primary {
+    background-color: #59CBE8 !important;
+}
+	.btn {
+    background-color: #59CBE8 !important;
+}
+	
+</style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">GrowSkill</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Men's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">T-shirt</a></li>
+            <li><a class="dropdown-item" href="#">Shirts</a></li>
+            <li><a class="dropdown-item" href="#">Jackets</a></li>
+            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="#">Trackpants</a></li>
+            <li><a class="dropdown-item" href="#">Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Women's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">T-shirt</a></li>
+            <li><a class="dropdown-item" href="#">Shirts</a></li>
+            <li><a class="dropdown-item" href="#">Jackets</a></li>
+            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="#">Trackpants</a></li>
+            <li><a class="dropdown-item" href="#">Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kid's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">T-shirt</a></li>
+            <li><a class="dropdown-item" href="#">Shirts</a></li>
+            <li><a class="dropdown-item" href="#">Jackets</a></li>
+            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="#">Trackpants</a></li>
+            <li><a class="dropdown-item" href="#">Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        
+        
+        <th:block th:if="${user==NULL}">
+			
+		 
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">Login</a>
+        </li>
+        </th:block>
+        
+        <th:block th:if="${user!=NULL}">
+			
+			
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+			
+		</th:block>
+        
+      </ul>
+      
+     
+      
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<section>
+	
+
+<div class="container p-5">
+			
+			<div class="row">
+				
+				<div class="col-md-6 offset-md-3">
+					
+					<div class="card">
+						
+						<div class="card-header text-center fs-4">
+							
+							Login Page
+							
+						</div>
+						<thblock th:if="${param.error}">
+							<p class="text-center text-danger fs-5">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+						</thblock>
+						<thblock th:if="${param.logout}">
+							<p class="text-center text-success fs-5">Logout Successfully</p>
+						</thblock>
+						<div class="card-body">
+							
+							<form action="userLogin" method="post">
+								
+								
+								<div class="mb-3">
+									<label>Enter Email</label>
+									<input type="text" name="username" class="form-control">
+								</div>
+								
+								<div class="mb-3">
+									<label>Enter Password</label>
+									<input type="text" name="password" class="form-control">
+								</div>
+								
+								<button class="btn btn-primary col-md-12">Login</button>
+								
+							</form>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.growskill.exception;
+
+public class courseException {
+
+}

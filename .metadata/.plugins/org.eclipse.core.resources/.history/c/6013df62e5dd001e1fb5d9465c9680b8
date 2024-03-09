@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">GrowSkill</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li><a href="/trainers">Trainers</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <li class="dropdown"><a href="/logout"><span>Logout</span></a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      <a href="courses.html" class="get-started-btn">Get Started</a>
+
+    </div>
+  </header><!-- End Header -->
+
+    <div class="housedetails">
+        <div class="house-title" >
+            <h1 id="house-title"></h1>
+            <div class="row">
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <span>245 Reviews</span>
+                </div>
+                <div id="headertxt">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="gallery" id="gallery">
+            <div class="gallery-img-1" id="image1"><!-- <img src="/images/house-1.png" alt=""> --></div> 
+            <div><img src="/images/house-2.png" alt=""></div>
+            <div><img src="/images/house-3.png" alt=""></div>
+            <div><img src="/images/house-4.png" alt=""></div>
+            <div><img src="/images/house-5.png" alt=""></div>
+        </div>
+        <div class="small-details">
+            <h2>Entire rental unit hosted by Soumit</h2>
+            <p id="capacitydetails"></p>
+            <h4 id="pricedetails"></h4>
+        </div>
+        <hr class="line">
+        <form class="check-form">
+            <div>
+                <label>Check-in</label>
+                <input type="text" placeholder="Add date">
+            </div>
+            <div>
+                <label>Check-out</label>
+                <input type="text" placeholder="Add date">
+            </div>
+            <div class="guest-field">
+                <label>Guest</label>
+                <input type="text" placeholder="2 guest">
+            </div>
+            <button type="submit">Book Now</button>
+        </form>
+
+        <ul class="details-list">
+            <li><i class="fa-solid fa-house"></i>
+                Entire Home
+                <span>You will have the entire flat for you</span>
+            </li>
+            <li><i class="fa-solid fa-broom"></i>
+                Enhanced Clean
+                <span>This host has committed to homestead's cleaning process</span>
+            </li>
+            <li><i class="fa-solid fa-location-dot"></i>
+                Great Location
+                <span>90% of recent guests gave the location a 5 star rating</span>
+            </li>
+            <li><i class="fa-solid fa-heart"></i>
+                Great Check-in Experience
+                <span>100% of recent guests gave the check-in process a 5 star rating</span>
+            </li>
+        </ul>
+        <hr class="line">
+        <p class="home-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum provident enim magni, molestias ad maiores officiis cupiditate eveniet repellendus exercitationem repudiandae impedit recusandae ex delectus sed nihil consectetur nulla tempora expedita qui rem? Odit, velit earum assumenda enim reiciendis iure ipsum animi saepe! Fugiat laboriosam non sed nesciunt iure veritatis provident quos earum, numquam minima placeat nam molestias similique?</p>
+        <hr class="line">
+
+        <div class="map">
+            <h3>Location on map</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.6408054341177!2d77.18908723340128!3d32.24347927210459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39048708163fd03f%3A0x8129a80ebe5076cd!2sManali%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1708435901392!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <b>San Francisco, United States</b>
+            <p>It's like a home away from home.</p>
+        </div>
+        <hr class="line">
+
+        <div class="host">
+            <img src="/images/host.png" alt="">
+            <div>
+                <h2>Hosted By Soumit</h2>
+                <p><span>
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        
+                </span>&nbsp; &nbsp; 245 reviews &nbsp; &nbsp; response rate 100% &nbsp; &nbsp; Response time: 60 min</p>
+            </div>
+        </div>
+        <a href="#" class="contact-host">Contact host</a>
+    </div>
+    <div class="container">
+        <div class="footer">
+            <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://twitter.com/"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://linkedIn.com/"><i class="fa-brands fa-linked-in"></i></a>
+            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <hr>
+            <p>Copyright @ 2024, Homestead Horizon</p>
+        </div>
+    </div>
+
+    <script>
+        var navBar = document.getElementById("navBar");
+    
+        function togglebtn(){
+            navBar.classList.toggle("hidemenu");
+        }
+    
+    	
+    	
+    	function fetchPropertyById(propertyId) {
+    const baseUrl = 'http://localhost:8888/property/getPropertById/';
+    const uri = `${baseUrl}${propertyId}`;
+
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => {
+			console.log(data);
+
+            const name = data.propertyName;
+            const guestLimit = data.capacity;
+            const image = data.image;
+    		const type = data.propertyType;
+    		const price = data.price;
+    		const location = data.location;
+    		
+    		let head = document.getElementById("house-title");
+    		head.innerText = name;
+    		
+    		let amenity = document.getElementById("capacitydetails");
+    		amenity.innerText = guestLimit+" guest 2 beds 1 bathroom";
+    		
+    		let pricedetails = document.getElementById("pricedetails");
+    		pricedetails.innerText = "₹ "+price+" / day";
+    		
+    		let headertxt = document.getElementById("headertxt");
+    		
+    		const txthead = document.createElement('p');
+            txthead.textContent = " Location : "+location;
+            
+            headertxt.appendChild(txthead);
+    		
+    		const imageElement = document.getElementById('image1');
+
+			const img = document.createElement('img');
+                img.src = image;
+                img.alt = name;
+
+			imageElement.appendChild(img);
+
+            console.log('Property Name:', name);
+            console.log('Guest Limit:', guestLimit);
+            console.log('Image URL:', image);
+            
+        })
+        .catch(error => console.error('Error fetching property by ID:', error));
+}
+    
+    window.onload = function() {
+		let id = localStorage.getItem("propertyId");
+		fetchPropertyById(id);
+    
+	};
+    
+    </script>
+
+</body>
+</html>

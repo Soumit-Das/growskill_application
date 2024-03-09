@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GrowSkill - register</title>
+
+<style>
+	.navbar.bg-primary {
+    background-color: #59CBE8 !important;
+}
+	.btn {
+    background-color: #59CBE8 !important;
+}
+	
+</style>
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">GrowSkill</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Men's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">T-shirt</a></li>
+            <li><a class="dropdown-item" href="#">Shirts</a></li>
+            <li><a class="dropdown-item" href="#">Jackets</a></li>
+            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="#">Trackpants</a></li>
+            <li><a class="dropdown-item" href="#">Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Women's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">T-shirt</a></li>
+            <li><a class="dropdown-item" href="#">Shirts</a></li>
+            <li><a class="dropdown-item" href="#">Jackets</a></li>
+            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="#">Trackpants</a></li>
+            <li><a class="dropdown-item" href="#">Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kid's
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">T-shirt</a></li>
+            <li><a class="dropdown-item" href="#">Shirts</a></li>
+            <li><a class="dropdown-item" href="#">Jackets</a></li>
+            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+            <li><a class="dropdown-item" href="#">Trackpants</a></li>
+            <li><a class="dropdown-item" href="#">Shoes</a></li>
+            <li><a class="dropdown-item" href="#">Hats & Caps</a></li>
+          </ul>
+        </li>
+        
+        
+        
+        <th:block th:if="${user==NULL}">
+			
+		 
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signin">Login</a>
+        </li>
+        </th:block>
+        
+        <th:block th:if="${user!=NULL}">
+			
+			
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </li>
+			
+		</th:block>
+        
+      </ul>
+      
+     
+      
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<section>
+	
+
+
+<div class="container p-5">
+			
+			<div class="row">
+				
+				<div class="col-md-6 offset-md-3">
+					
+					<div class="card">
+						
+						<div class="card-header text-center fs-4">
+							
+							
+							
+							<th:block th:if="${session.msg}">
+							
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							<th:block th:text="${@userServiceImpl.removeSessionMessage()}"></th:block>	
+							</th:block>
+							
+
+							
+						</div>
+						
+						<div class="card-body">
+							
+							<form action="saveUser" method="post">
+								
+								<div class="mb-3">
+									<label>Enter Firstname</label>
+									<input type="text" name="firstname" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter Lastname</label>
+									<input type="text" name="lastname" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter Age</label>
+									<input type="text" name="age" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter Gender</label>
+									<input type="text" name="gender" class="form-control">
+								</div>
+								<!-- <div class="mb-3">
+									<label>Enter Address</label>
+									<input type="text" name="address" class="form-control">
+								</div> -->
+								<div class="mb-3">
+									<label>Enter Email</label>
+									<input type="email" name="email" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter Password</label>
+									<input type="text" name="password" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter Phone</label>
+									<input type="text" name="phone" class="form-control">
+								</div>
+									<!-- <div class="mb-3">
+										<label>Enter DOB</label>
+										<input type="text" name="DateofBirth" class="form-control"  placeholder="yyyy-MM-dd">
+									</div> -->
+								
+								<button class="btn btn-primary col-md-12">Register</button>
+								
+							</form>
+							
+							
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	
+</section>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GrowSkill</title>
+<link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/">GrowSkill</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li><a href="/trainers">Trainers</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown"><a href="#"><span>User</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <li class="dropdown"><a href="/logout"><span>Logout</span></a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+      <a href="courses.html" class="get-started-btn">Get Started</a>
+
+    </div>
+  </header><!-- End Header -->
+
+    
+    <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Mentor</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">GrowSkill</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+
+
+  <script src="assets/js/main.js"></script> href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+        var navBar = document.getElementById("navBar");
+    
+        function togglebtn(){
+            navBar.classList.toggle("hidemenu");
+        }
+    
+    	
+    	
+    	function fetchPropertyById(propertyId) {
+    const baseUrl = 'http://localhost:8888/property/getPropertById/';
+    const uri = `${baseUrl}${propertyId}`;
+
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => {
+			console.log(data);
+
+            const name = data.propertyName;
+            const guestLimit = data.capacity;
+            const image = data.image;
+    		const type = data.propertyType;
+    		const price = data.price;
+    		const location = data.location;
+    		
+    		let head = document.getElementById("house-title");
+    		head.innerText = name;
+    		
+    		let amenity = document.getElementById("capacitydetails");
+    		amenity.innerText = guestLimit+" guest 2 beds 1 bathroom";
+    		
+    		let pricedetails = document.getElementById("pricedetails");
+    		pricedetails.innerText = "₹ "+price+" / day";
+    		
+    		let headertxt = document.getElementById("headertxt");
+    		
+    		const txthead = document.createElement('p');
+            txthead.textContent = " Location : "+location;
+            
+            headertxt.appendChild(txthead);
+    		
+    		const imageElement = document.getElementById('image1');
+
+			const img = document.createElement('img');
+                img.src = image;
+                img.alt = name;
+
+			imageElement.appendChild(img);
+
+            console.log('Property Name:', name);
+            console.log('Guest Limit:', guestLimit);
+            console.log('Image URL:', image);
+            
+        })
+        .catch(error => console.error('Error fetching property by ID:', error));
+}
+    
+    window.onload = function() {
+		let id = localStorage.getItem("propertyId");
+		fetchPropertyById(id);
+    
+	};
+    
+    </script>
+
+</body>
+</html>

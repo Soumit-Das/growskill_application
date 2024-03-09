@@ -1,0 +1,122 @@
+package com.growskill.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.growskill.exception.CourseException;
+import com.growskill.exception.InstructorException;
+import com.growskill.exception.UserException;
+import com.growskill.model.Course;
+import com.growskill.model.Instructor;
+import com.growskill.model.User;
+import com.growskill.repository.CourseRepository;
+import com.growskill.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class UserServiceImpl implements UserService{
+
+	@Autowired
+	public UserRepository userRepository;
+	
+	@Autowired
+	public CourseRepository courseRepository;
+	
+	@Override
+	public User createUser(User user) throws UserException {
+		
+		if(userRepository.existsById(user.getUserId())) {
+			throw new UserException("User already exists with id : "+user.getUserId());
+		}
+		
+		return userRepository.save(user);
+	}
+
+	@Override
+	public User getUserById(int id) throws UserException {
+		
+		if(!userRepository.existsById(id)) {
+			throw new UserException("User doesn't exists with id : "+id);
+		}
+		
+		Optional<User> us = userRepository.findById(id);
+		
+		return us.get();
+	}
+
+	@Override
+	public User updateUserById(int id, User user) throws UserException {
+		
+		if(!userRepository.existsById(id)) {
+			throw new UserException("User doesn't exists with id : "+id);
+		}
+		
+		Optional<User> us = userRepository.findById(id);
+		
+		User u = us.get();
+		
+		u.setFirstname(user.getFirstname());
+		u.setLastname(user.getLastname());
+		u.setAddress(user.getAddress());
+		u.setAge(user.getAge());
+		u.setDateofBirth(user.getDateofBirth());
+		u.setEmail(user.getEmail());
+		u.setGender(user.getGender());
+		u.setPassword(user.getPassword());
+		u.setPhone(user.getPhone());
+		u.setProfilePic(user.getProfilePic());
+		u.setRole(user.getRole());
+
+		
+		
+		return userRepository.save(u);
+	}
+
+	@Override
+	public String deleteUserById(int id) throws UserException {
+		
+		if(!userRepository.existsById(id)) {
+			throw new UserException("User doesn't exists with id : "+id);
+		}
+		
+		Optional<User> us = userRepository.findById(id);
+		
+		userRepository.delete(us.get());
+		
+		return "User deleted successfully";
+	}
+
+	@Override
+	public User assignCourseToUser(int courseid, int userid) throws UserException, CourseException {
+		
+
+		
+		if(!userRepository.existsById(userid)) {
+			throw new UserException("User doesn't exists with id : "+userid);
+		}
+	
+		if(!courseRepository.existsById(courseid)) {
+			throw new CourseException("Course doesn't exists with id : "+courseid);
+		}
+		
+		
+		Optional<Course> c = courseRepository.findById(courseid);
+		
+		Course co = c.get();
+		
+		Optional<User> us = userRepository.findById(userid);
+		
+		User u = us.get();
+		
+		u.getCourses().add(co);
+		
+//		co.getUsers();)
+		
+		return u;
+
+	}
+
+}

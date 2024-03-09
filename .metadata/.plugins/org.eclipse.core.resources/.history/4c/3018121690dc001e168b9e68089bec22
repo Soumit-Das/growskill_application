@@ -1,0 +1,9 @@
+package com.growskill.exception;
+
+public class courseException extends Exception{
+
+	public courseException(String message) {
+		super(message);
+	}
+	
+}
